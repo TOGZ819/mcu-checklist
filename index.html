@@ -1,38 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MCU Checklist</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Login - MCU Checklist</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0d0d0d;
+      color: #eaeaea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+    .login-container {
+      background: rgba(18, 18, 18, 0.7);
+      backdrop-filter: blur(16px);
+      padding: 30px 40px;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    h2 {
+      color: #ff4757;
+      margin-bottom: 20px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: none;
+      background: #222;
+      color: #eee;
+      font-size: 1rem;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      outline: none;
+    }
+    button {
+      background: #ff4757;
+      border: none;
+      padding: 12px 20px;
+      color: white;
+      font-size: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #e63e4a;
+    }
+    .error {
+      color: #ff6b6b;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>MCU Checklist</h1>
-      <div class="profile-buttons">
-        <button data-profile="Tommy" class="profile-btn active">Profile 1</button>
-        <button data-profile="Dad" class="profile-btn">Profile 2</button>
-      </div>
-      <input type="text" id="search" placeholder="Search movies..." autocomplete="off" />
-    </div>
-
-    <div class="progress-bar-container">
-      <div id="progress-bar"></div>
-    </div>
-
-    <ul id="movie-list" class="movie-list"></ul>
-
-    <div class="bottom-controls">
-      <button id="uncheck-all-btn" class="uncheck-btn">Uncheck All</button>
-      <div id="popup-confirm" class="popup-confirm hidden">Are you sure? <button id="confirm-yes">Yes</button> <button id="confirm-no">No</button></div>
-    </div>
-
-    <div id="summary-stats" class="summary-stats"></div>
-
-    <div id="total-time" class="total-time"></div>
+  <div class="login-container">
+    <h2>Enter Password</h2>
+    <input type="password" id="password" placeholder="Password" />
+    <div class="error" id="error-msg">Incorrect password. Try again.</div>
+    <button id="login-btn">Login</button>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    const correctPassword = "oscar88z"; // Set your password here
+    const loginBtn = document.getElementById("login-btn");
+    const passwordInput = document.getElementById("password");
+    const errorMsg = document.getElementById("error-msg");
+
+    loginBtn.addEventListener("click", () => {
+      if (passwordInput.value === correctPassword) {
+        window.location.href = "index.html";
+      } else {
+        errorMsg.style.display = "block";
+        passwordInput.value = "";
+        passwordInput.focus();
+      }
+    });
+
+    passwordInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        loginBtn.click();
+      }
+    });
+  </script>
 </body>
 </html>
