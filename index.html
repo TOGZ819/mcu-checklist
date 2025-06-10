@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MCU Checklist</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>MCU Checklist</h1>
+      <div class="profile-buttons">
+        <button data-profile="Tommy" class="profile-btn active">Tommy</button>
+        <button data-profile="Dad" class="profile-btn">Dad</button>
+      </div>
+      <input type="text" id="search" placeholder="Search movies..." autocomplete="off" />
+    </div>
+
+    <div class="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+
+    <ul id="movie-list" class="movie-list"></ul>
+
+    <div class="bottom-controls">
+      <button id="uncheck-all-btn" class="uncheck-btn">Uncheck All</button>
+      <div id="popup-confirm" class="popup-confirm hidden">Are you sure? <button id="confirm-yes">Yes</button> <button id="confirm-no">No</button></div>
+    </div>
+
+    <div id="summary-stats" class="summary-stats"></div>
+
+    <div id="total-time" class="total-time"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
